@@ -1,0 +1,120 @@
+/* =========================================
+   FYTT FITNESS CUSTOM STYLES 
+   ========================================= */
+
+/* --- 1. Hero & Backgrounds --- */
+.hero-bg {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,1)), url('https://images.unsplash.com/photo-1561532325-7d5231a2dede?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- 2. Buttons --- */
+.btn-primary {
+    background-color: #E60000;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: black;
+    transform: translateY(-2px);
+}
+
+/* --- 3. Navigation Styles --- */
+
+/* Desktop Menu: Smooth Underline Animation */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #E60000;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu: Transitions & States */
+.mobile-menu-overlay {
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.mobile-menu-content {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hidden State */
+.menu-hidden .mobile-menu-overlay {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu-hidden .mobile-menu-content {
+    transform: translateY(-20px) scale(0.95);
+}
+
+/* Visible State */
+.menu-visible .mobile-menu-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-visible .mobile-menu-content {
+    transform: translateY(0) scale(1);
+}
+
+/* --- 4. Animations --- */
+
+/* Shimmer Animation (Button Hover) */
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.group:hover .group-hover\:animate-shimmer {
+    animation: shimmer 1.5s infinite;
+}
+
+/* Fade In Up / Down Keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation Utilities */
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Animation Delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }

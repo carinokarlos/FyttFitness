@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | FYTT Fitness</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Teko:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: '#E60000' },
+                    fontFamily: {
+                        display: ['Teko', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white h-screen flex items-center justify-center bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] font-sans selection:bg-brand selection:text-white">
+
+    <div class="w-full max-w-md p-6 animate-fade-in-up">
+        
+        <div class="text-center mb-8 relative z-10">
+            <h1 class="text-5xl font-display font-bold italic tracking-wider mb-2 drop-shadow-lg">
+                FYTT<span class="text-brand">FITNESS</span>
+            </h1>
+            <p class="text-gray-400 text-sm tracking-wide font-medium uppercase">
+                Access Terminal
+            </p>
+        </div>
+
+        <div class="bg-gray-900/95 backdrop-blur-sm border border-white/10 p-8 rounded-2xl shadow-2xl relative overflow-hidden group">
+            
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand/10 rounded-full blur-3xl pointer-events-none group-hover:bg-brand/20 transition-all duration-700"></div>
+
+            <form action="api/auth.php" method="POST" class="space-y-6 relative z-10">
+                
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1 ml-1">Email / Username</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-user text-gray-600 text-sm"></i>
+                        </div>
+                        <input type="text" name="email" required 
+                               class="w-full bg-black/50 border border-white/10 rounded-lg pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all placeholder-gray-700 text-white"
+                               placeholder="admin or email@example.com">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1 ml-1">Password</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-lock text-gray-600 text-sm"></i>
+                        </div>
+                        <input type="password" name="password" required 
+                               class="w-full bg-black/50 border border-white/10 rounded-lg pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all placeholder-gray-700 text-white"
+                               placeholder="••••••••">
+                    </div>
+                    <div class="text-right mt-1">
+                        <a href="#" class="text-[10px] text-gray-500 hover:text-white transition-colors">Forgot Password?</a>
+                    </div>
+                </div>
+
+                <button type="submit" 
+                        class="w-full bg-brand text-white font-display text-xl uppercase tracking-widest py-3 rounded-lg hover:bg-white hover:text-black transition-all duration-300 shadow-lg hover:shadow-brand/50 transform hover:-translate-y-1">
+                    Enter System
+                </button>
+
+            </form>
+
+            <div class="mt-8 text-center pt-6 border-t border-white/5">
+                <p class="text-xs text-gray-500">New Recruit?</p>
+                <a href="register.html" class="inline-block mt-2 text-sm font-bold uppercase tracking-wider text-white hover:text-brand transition-colors">
+                    Join the Club <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center mt-8 opacity-50 hover:opacity-100 transition-opacity">
+            <a href="index.html" class="text-xs text-gray-500 hover:text-white uppercase tracking-widest flex items-center justify-center gap-2">
+                <i class="fa-solid fa-chevron-left"></i> Back to Home
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Fight | FYTT Fitness</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Teko:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: '#E60000' },
+                    fontFamily: {
+                        display: ['Teko', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black text-white h-screen flex items-center justify-center bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] font-sans selection:bg-brand selection:text-white">
+
+    <div class="w-full max-w-lg p-6 animate-fade-in-up">
+        
+        <div class="text-center mb-8 relative z-10">
+            <h1 class="text-5xl font-display font-bold italic tracking-wider mb-2 drop-shadow-lg">
+                FYTT<span class="text-brand">FITNESS</span>
+            </h1>
+            <p class="text-gray-400 text-sm tracking-wide font-medium uppercase">
+                Initiation Protocol
+            </p>
+        </div>
+
+        <div class="bg-gray-900/95 backdrop-blur-sm border border-white/10 p-8 rounded-2xl shadow-2xl relative overflow-hidden group">
+            
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand/20 rounded-full blur-3xl pointer-events-none group-hover:bg-brand/30 transition-all duration-700"></div>
+
+            <form action="api/register.php" method="POST" class="space-y-5 relative z-10">
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1 ml-1">First Name</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-user text-gray-600 text-sm"></i>
+                            </div>
+                            <input type="text" name="first_name" required 
+                                   class="w-full bg-black/50 border border-white/10 rounded-lg pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all placeholder-gray-700 text-white"
+                                   placeholder="John">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1 ml-1">Last Name</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-user text-gray-600 text-sm"></i>
+                            </div>
+                            <input type="text" name="last_name" required 
+                                   class="w-full bg-black/50 border border-white/10 rounded-lg pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all placeholder-gray-700 text-white"
+                                   placeholder="Doe">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1 ml-1">Email Address</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-envelope text-gray-600 text-sm"></i>
+                        </div>
+                        <input type="email" name="email" required 
+                               class="w-full bg-black/50 border border-white/10 rounded-lg pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all placeholder-gray-700 text-white"
+                               placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1 ml-1">Phone</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-phone text-gray-600 text-sm"></i>
+                        </div>
+                        <input type="tel" name="phone" required 
+                               class="w-full bg-black/50 border border-white/10 rounded-lg pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all placeholder-gray-700 text-white"
+                               placeholder="0912 345 6789">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1 ml-1">Password</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-lock text-gray-600 text-sm"></i>
+                            </div>
+                            <input type="password" name="password" required 
+                                   class="w-full bg-black/50 border border-white/10 rounded-lg pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all placeholder-gray-700 text-white"
+                                   placeholder="••••••••">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-gray-500 mb-1 ml-1">Confirm</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fa-solid fa-check-double text-gray-600 text-sm"></i>
+                            </div>
+                            <input type="password" name="confirm_password" required 
+                                   class="w-full bg-black/50 border border-white/10 rounded-lg pl-9 pr-4 py-3 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all placeholder-gray-700 text-white"
+                                   placeholder="••••••••">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3 pt-2">
+                    <div class="relative flex items-start">
+                        <input type="checkbox" required class="peer h-4 w-4 shrink-0 rounded border-gray-600 bg-black text-brand focus:ring-offset-black focus:ring-brand/50 cursor-pointer mt-0.5">
+                    </div>
+                    <span class="text-xs text-gray-400">
+                        I agree to the <a href="#" class="text-brand hover:text-white transition-colors underline decoration-brand/50">Terms of Service</a> & <a href="#" class="text-brand hover:text-white transition-colors underline decoration-brand/50">Waiver</a>.
+                    </span>
+                </div>
+
+                <button type="submit" 
+                        class="w-full bg-brand text-white font-display text-xl uppercase tracking-widest py-3 rounded-lg hover:bg-white hover:text-black transition-all duration-300 shadow-lg hover:shadow-brand/50 transform hover:-translate-y-1">
+                    Initialize Account
+                </button>
+
+            </form>
+
+            <div class="mt-6 text-center pt-6 border-t border-white/5">
+                <p class="text-xs text-gray-500">Already have an account?</p>
+                <a href="login.html" class="inline-block mt-2 text-sm font-bold uppercase tracking-wider text-white hover:text-brand transition-colors">
+                    Log In System <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="text-center mt-8 opacity-50 hover:opacity-100 transition-opacity">
+            <a href="index.html" class="text-xs text-gray-500 hover:text-white uppercase tracking-widest">
+                <i class="fa-solid fa-chevron-left mr-1"></i> Back to Home
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FYTT FITNESS | MMA & Performance Center</title>
+    
+    <link rel="stylesheet" href="assets/style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Teko:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#E60000', 
+                            black: '#000000',
+                            gray: '#121212',
+                            lightgray: '#2A2A2A',
+                            darkred: '#990000'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Teko', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'shimmer': 'shimmer 1.5s infinite',
+                    },
+                    keyframes: {
+                        shimmer: {
+                            '100%': { transform: 'translateX(100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-black antialiased text-white font-sans">
+
+    <nav id="navbar" class="fixed w-full z-50 top-0 start-0 transition-all duration-500 border-b border-transparent">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <a href="#" class="group flex items-center gap-1">
+                <span class="text-3xl md:text-4xl font-display font-bold tracking-wider text-white italic group-hover:text-gray-200 transition-colors">
+                    FYTT<span class="text-brand group-hover:text-white transition-colors duration-300">FITNESS</span>
+                </span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-bold tracking-[0.15em] text-gray-300">
+                <a href="#programs" class="nav-link relative py-2 overflow-hidden group">
+                    <span class="relative z-10 group-hover:text-white transition-colors">PROGRAMS</span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand transform -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
+                </a>
+                <a href="#schedule" class="nav-link relative py-2 overflow-hidden group">
+                    <span class="relative z-10 group-hover:text-white transition-colors">SCHEDULE</span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand transform -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
+                </a>
+                <a href="#membership" class="nav-link relative py-2 overflow-hidden group">
+                    <span class="relative z-10 group-hover:text-white transition-colors">PRICING</span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand transform -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
+                </a>
+                <a href="#contact" class="nav-link relative py-2 overflow-hidden group">
+                    <span class="relative z-10 group-hover:text-white transition-colors">CONTACT</span>
+                    <span class="absolute bottom-0 left-0 w-full h-[2px] bg-brand transform -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
+                </a>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                
+                <a href="login.html" class="hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white hover:text-brand transition-colors group">
+                    <i class="fa-solid fa-user text-brand group-hover:text-white transition-colors"></i> Log In
+                </a>
+
+                <a href="#membership" class="hidden md:inline-block relative px-8 py-2 bg-brand text-white font-bold uppercase tracking-widest text-xs rounded-sm overflow-hidden group">
+                    <span class="relative z-10 group-hover:text-brand transition-colors duration-300">Join Now</span>
+                    <div class="absolute inset-0 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+                </a>
+
+                <button id="mobileMenuBtn" class="md:hidden text-white text-2xl focus:outline-none relative w-8 h-8 flex items-center justify-center group">
+                    <div class="w-6 h-4 relative flex flex-col justify-between">
+                        <span id="bar1" class="w-full h-[2px] bg-white rounded-full transform transition-all duration-300 origin-left group-hover:bg-brand"></span>
+                        <span id="bar2" class="w-full h-[2px] bg-white rounded-full transform transition-all duration-300 group-hover:bg-brand"></span>
+                        <span id="bar3" class="w-full h-[2px] bg-white rounded-full transform transition-all duration-300 origin-left group-hover:bg-brand"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand/10 rounded-full blur-[80px] pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-900/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+            <div class="flex flex-col items-center space-y-8 text-center relative z-10">
+                <a href="#programs" class="mobile-link text-4xl font-display font-bold text-white hover:text-brand transition-all transform hover:scale-110">PROGRAMS</a>
+                <a href="#schedule" class="mobile-link text-4xl font-display font-bold text-white hover:text-brand transition-all transform hover:scale-110">SCHEDULE</a>
+                <a href="#membership" class="mobile-link text-4xl font-display font-bold text-white hover:text-brand transition-all transform hover:scale-110">PRICING</a>
+                <a href="#contact" class="mobile-link text-4xl font-display font-bold text-white hover:text-brand transition-all transform hover:scale-110">CONTACT</a>
+                
+                <div class="w-16 h-[1px] bg-white/20 my-4"></div>
+
+                <a href="login.html" class="mobile-link text-2xl font-display font-bold text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i> LOG IN
+                </a>
+
+                <a href="#membership" class="mobile-link mt-4 px-10 py-4 bg-brand text-white text-xl font-bold uppercase tracking-widest rounded-sm hover:bg-white hover:text-black transition-all shadow-[0_0_20px_rgba(230,0,0,0.4)]">
+                    Start Training
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-bg px-4 text-center relative">
+        <div class="relative max-w-7xl mx-auto pt-20 pb-16 px-6 flex flex-col items-center justify-center text-center z-10 min-h-[80vh]">
+    
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-black/60 blur-[100px] -z-10 rounded-full"></div>
+
+            <div class="mb-8 animate-fade-in-down">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-black/50 backdrop-blur-md shadow-lg">
+                    <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+                    <span class="text-xs font-bold tracking-[0.2em] uppercase text-white">Est. 2026 • Manila, PH</span>
+                </div>
+            </div>
+
+            <h1 class="text-7xl md:text-9xl font-display font-bold leading-[0.85] mb-8 text-white drop-shadow-2xl tracking-tighter">
+                <span class="block hover:text-gray-300 transition-colors duration-300 relative z-30">
+                    BLOOD
+                </span>
+                <span class="block bg-gradient-to-b from-white via-gray-400 to-gray-700 bg-clip-text text-transparent hover:to-white transition-all duration-500 -mt-2 md:-mt-4 relative z-20">
+                    SWEAT
+                </span>
+                <span class="block text-brand relative -mt-2 md:-mt-4 z-10">
+                    RESPECT
+                    <svg class="absolute w-full h-3 -bottom-2 left-0 text-brand fill-current" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <path d="M0 5 Q 50 10 100 5 L 100 10 L 0 10 Z" opacity="0.6"></path>
+                    </svg>
+                </span>
+            </h1>
+
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl font-light leading-relaxed animate-fade-in-up delay-100">
+                Stop wishing. Start working. A premium combat & performance facility designed for the <span class="text-white font-semibold">obsessed</span>.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-6 w-full justify-center items-center animate-fade-in-up delay-200 mt-2">
+                
+                <a href="#membership" class="group relative px-10 py-4 bg-brand text-white text-2xl font-display font-bold uppercase tracking-widest overflow-hidden rounded shadow-lg hover:shadow-red-900/50 hover:-translate-y-1 transition-all duration-300">
+                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
+                    <span class="relative z-10 flex items-center gap-3">
+                        Start Trial <i class="fa-solid fa-bolt text-lg animate-pulse"></i>
+                    </span>
+                </a>
+                
+                <a href="#programs" class="group relative px-10 py-4 text-2xl font-display font-bold uppercase tracking-widest text-white border border-white/20 bg-white/5 backdrop-blur-sm rounded hover:bg-white hover:text-black hover:-translate-y-1 transition-all duration-300">
+                    <span class="relative z-10 flex items-center gap-3">
+                        Explore Classes <i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 transition-transform duration-300"></i>
+                    </span>
+                </a>
+
+            </div>
+        </div>
+    </header>
+
+    <section id="programs" class="py-32 bg-black relative">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-800 pb-6">
+                <div>
+                    <h2 class="text-brand font-bold tracking-widest uppercase mb-2 flex items-center gap-2">
+                        <span class="w-8 h-[2px] bg-brand inline-block"></span> Disciplines
+                    </h2>
+                    <h3 class="text-5xl md:text-7xl font-display font-bold text-white leading-none">
+                        CHOOSE YOUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-red-600">FIGHT</span>
+                    </h3>
+                </div>
+                <div class="hidden md:block pb-2">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm font-bold tracking-widest uppercase group">
+                        View All Classes <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform text-brand"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <div class="group relative h-[500px] overflow-hidden rounded-xl border border-white/10 hover:border-brand/50 transition-colors duration-500">
+                    <img src="https://images.unsplash.com/photo-1546711076-85a7923432ab?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Boxing Sparring"
+                         class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="mb-4 text-brand text-5xl transform -translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                            <i class="fa-solid fa-hand-fist"></i>
+                        </div>
+                        <h4 class="text-4xl font-bold font-display text-white mb-2 leading-none uppercase">Boxing</h4>
+                        <div class="h-0 group-hover:h-auto overflow-hidden transition-all duration-500">
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                Master the sweet science. High-intensity drills, bag work, and technical sparring for all levels.
+                            </p>
+                            <span class="text-brand text-xs font-bold uppercase tracking-widest border-b border-brand pb-1 inline-block">Explore Class</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative h-[500px] overflow-hidden rounded-xl border border-white/10 hover:border-brand/50 transition-colors duration-500">
+                    <img src="https://images.unsplash.com/photo-1534368270820-9de3d8053204?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Powerlifting Deadlift"
+                         class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="mb-4 text-brand text-5xl transform -translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <h4 class="text-4xl font-bold font-display text-white mb-2 leading-none uppercase">Powerlifting &<br>Strength</h4>
+                        <div class="h-0 group-hover:h-auto overflow-hidden transition-all duration-500">
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                Calibrated plates, combo racks, and pure strength programming. Build your total with us.
+                            </p>
+                            <span class="text-brand text-xs font-bold uppercase tracking-widest border-b border-brand pb-1 inline-block">Explore Class</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative h-[500px] overflow-hidden rounded-xl border border-white/10 hover:border-brand/50 transition-colors duration-500">
+                    <img src="https://images.unsplash.com/photo-1525680996651-0222228be6f0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Muay Thai Kick"
+                         class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="mb-4 text-brand text-5xl transform -translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h4 class="text-4xl font-bold font-display text-white mb-2 leading-none uppercase">Muay Thai &<br>Kickboxing</h4>
+                        <div class="h-0 group-hover:h-auto overflow-hidden transition-all duration-500">
+                            <p class="text-gray-300 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                The art of eight limbs. Learn to strike using fists, elbows, knees, and shins.
+                            </p>
+                            <span class="text-brand text-xs font-bold uppercase tracking-widest border-b border-brand pb-1 inline-block">Explore Class</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                 <a href="#" class="btn-primary inline-block px-8 py-3 rounded uppercase font-bold tracking-widest text-sm">View All Classes</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="py-20 md:py-32 bg-black relative">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-brand font-bold tracking-widest uppercase mb-2">Timetable</h2>
+                    <h3 class="text-5xl md:text-6xl font-display font-bold text-white">WEEKLY GRIND</h3>
+                </div>
+                <div class="mt-6 md:mt-0 w-full md:w-auto">
+                    <button class="w-full md:w-auto border border-white/20 text-white px-6 py-3 md:py-2 uppercase font-bold text-sm hover:bg-brand hover:border-brand transition-all flex items-center justify-center gap-2 rounded">
+                        <i class="fa-solid fa-download"></i> Download PDF
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-4 mb-8 text-xs font-bold uppercase tracking-wider">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-brand"></span> <span class="text-gray-400">Combat</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-gray-700"></span> <span class="text-gray-400">Strength</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-white"></span> <span class="text-gray-400">Conditioning</span>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto rounded-xl border border-white/10 shadow-2xl bg-gray-900/50 backdrop-blur-sm">
+                <table class="w-full text-left border-collapse min-w-[800px]">
+                    <thead>
+                        <tr class="bg-black text-white border-b border-white/10 text-sm tracking-wider uppercase">
+                            <th class="p-6 font-bold text-brand w-32 border-r border-white/10">Time</th>
+                            <th class="p-6 font-bold">Monday</th>
+                            <th class="p-6 font-bold bg-white/5">Tuesday</th>
+                            <th class="p-6 font-bold">Wednesday</th>
+                            <th class="p-6 font-bold bg-white/5">Thursday</th>
+                            <th class="p-6 font-bold">Friday</th>
+                            <th class="p-6 font-bold text-gray-500">Sat/Sun</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody id="schedule-body" class="text-sm font-semibold text-gray-300 divide-y divide-white/5">
+                        <tr>
+                            <td colspan="7" class="p-8 text-center text-gray-500 animate-pulse">
+                                <i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Connecting to Database...
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="md:col-span-2 bg-gray-900/50 border border-white/10 rounded-xl p-8 backdrop-blur-sm">
+                    <h4 class="font-display font-bold text-2xl text-white mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-triangle-exclamation text-brand"></i> RULES OF ENGAGEMENT
+                    </h4>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-brand font-bold shrink-0">01</div>
+                            <div>
+                                <h5 class="text-white font-bold uppercase text-sm mb-1">Arrive Early</h5>
+                                <p class="text-xs text-gray-400 leading-relaxed">Classes start strictly on time.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-brand font-bold shrink-0">02</div>
+                            <div>
+                                <h5 class="text-white font-bold uppercase text-sm mb-1">No Egos</h5>
+                                <p class="text-xs text-gray-400 leading-relaxed">We train hard, but we train safe.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-brand font-bold shrink-0">03</div>
+                            <div>
+                                <h5 class="text-white font-bold uppercase text-sm mb-1">Gear Check</h5>
+                                <p class="text-xs text-gray-400 leading-relaxed">Bring your own towel and water.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-brand font-bold shrink-0">04</div>
+                            <div>
+                                <h5 class="text-white font-bold uppercase text-sm mb-1">Clean Up</h5>
+                                <p class="text-xs text-gray-400 leading-relaxed">Wipe down equipment after use.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-brand to-red-900 rounded-xl p-8 flex flex-col justify-between text-white shadow-2xl relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-6 text-9xl text-black/20">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-display font-bold text-3xl mb-2 leading-none">TIMETABLE <br>DON'T FIT?</h4>
+                        <p class="text-white/80 text-sm mb-6 leading-relaxed">
+                            Book a private 1-on-1 session. Your time, your goals.
+                        </p>
+                    </div>
+                    <a href="#contact" class="bg-white text-brand font-bold text-center py-3 uppercase text-sm tracking-widest hover:bg-black hover:text-white transition-colors z-10 rounded">
+                        Book Private
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-24 bg-black relative border-t border-white/10 overflow-hidden">
+        
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-brand/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
+                <div>
+                    <h2 class="text-brand font-bold tracking-[0.2em] uppercase mb-2 flex items-center gap-3">
+                        <span class="w-2 h-2 bg-brand rounded-full animate-pulse"></span> The Corner
+                    </h2>
+                    <h3 class="text-5xl md:text-7xl font-display font-bold text-white leading-none">
+                        ELITE <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">COACHING</span>
+                    </h3>
+                </div>
+                <div class="hidden md:block text-right">
+                    <p class="text-gray-400 text-sm leading-relaxed font-mono">
+                        // STAFF_ROSTER_LOADED<br>
+                        // FIGHT_IQ_LEVEL: <span class="text-brand">MAXIMUM</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="group relative h-[550px] bg-gray-900 rounded-2xl overflow-hidden border border-white/10 hover:border-brand/50 hover:shadow-[0_0_30px_rgba(230,0,0,0.15)] transition-all duration-500">
+                    
+                    <img src="https://images.unsplash.com/photo-1583468982228-19f19164aee2?q=80&w=800&auto=format&fit=crop" 
+                         class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
+                         alt="Coach Mike">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 group-hover:opacity-80 transition-opacity"></div>
+
+                    <div class="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-white/20 group-hover:border-brand transition-colors"></div>
+                    <div class="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-white/20 group-hover:border-brand transition-colors"></div>
+
+                    <div class="absolute top-6 right-6 translate-x-12 group-hover:translate-x-0 transition-transform duration-300">
+                        <a href="#" class="w-10 h-10 rounded bg-white/10 backdrop-blur text-white flex items-center justify-center hover:bg-brand hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500">
+                        
+                        <div class="border-l-4 border-brand pl-4 mb-4">
+                            <h5 class="text-brand font-bold uppercase text-xs tracking-[0.2em] mb-1">Head Striking Coach</h5>
+                            <h4 class="text-white font-display font-bold text-5xl leading-none">MIKE T.</h4>
+                        </div>
+
+                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 space-y-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Pro Record: 15-2 (10 KO). Former Golden Gloves Champion specializing in counter-punching and footwork.
+                            </p>
+                            
+                            <div class="space-y-2 font-mono text-[10px] uppercase tracking-widest text-gray-400">
+                                <div class="flex justify-between">
+                                    <span>Experience</span>
+                                    <span class="text-white">12 Years</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-brand w-[90%]"></div>
+                                </div>
+
+                                <div class="flex justify-between mt-2">
+                                    <span>Technique</span>
+                                    <span class="text-white">Elite</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-brand w-[95%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative h-[550px] bg-gray-900 rounded-2xl overflow-hidden border border-white/10 hover:border-brand/50 hover:shadow-[0_0_30px_rgba(230,0,0,0.15)] transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1611672585731-fa10603fb9e0?q=80&w=800&auto=format&fit=crop" 
+                         class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
+                         alt="Coach Sarah">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 group-hover:opacity-80 transition-opacity"></div>
+
+                    <div class="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-white/20 group-hover:border-blue-500 transition-colors"></div>
+                    <div class="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-white/20 group-hover:border-blue-500 transition-colors"></div>
+
+                    <div class="absolute top-6 right-6 translate-x-12 group-hover:translate-x-0 transition-transform duration-300">
+                        <a href="#" class="w-10 h-10 rounded bg-white/10 backdrop-blur text-white flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="border-l-4 border-blue-600 pl-4 mb-4">
+                            <h5 class="text-blue-500 font-bold uppercase text-xs tracking-[0.2em] mb-1">S&C Director</h5>
+                            <h4 class="text-white font-display font-bold text-5xl leading-none">SARAH J.</h4>
+                        </div>
+
+                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 space-y-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Certified CSCS. State Powerlifting Champion. Expert in fight-camp periodization and mobility.
+                            </p>
+                            
+                            <div class="space-y-2 font-mono text-[10px] uppercase tracking-widest text-gray-400">
+                                <div class="flex justify-between">
+                                    <span>Strength</span>
+                                    <span class="text-white">Max</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-500 w-[98%]"></div>
+                                </div>
+
+                                <div class="flex justify-between mt-2">
+                                    <span>Conditioning</span>
+                                    <span class="text-white">Elite</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-500 w-[90%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative h-[550px] bg-gray-900 rounded-2xl overflow-hidden border border-white/10 hover:border-brand/50 hover:shadow-[0_0_30px_rgba(230,0,0,0.15)] transition-all duration-500">
+                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=800&auto=format&fit=crop" 
+                         class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
+                         alt="Kru David">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 group-hover:opacity-80 transition-opacity"></div>
+
+                    <div class="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-white/20 group-hover:border-yellow-500 transition-colors"></div>
+                    <div class="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-white/20 group-hover:border-yellow-500 transition-colors"></div>
+
+                    <div class="absolute top-6 right-6 translate-x-12 group-hover:translate-x-0 transition-transform duration-300">
+                        <a href="#" class="w-10 h-10 rounded bg-white/10 backdrop-blur text-white flex items-center justify-center hover:bg-yellow-500 hover:text-black transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+
+                    <div class="absolute bottom-0 left-0 w-full p-8 transform translate-y-12 group-hover:translate-y-0 transition-transform duration-500">
+                        <div class="border-l-4 border-yellow-500 pl-4 mb-4">
+                            <h5 class="text-yellow-500 font-bold uppercase text-xs tracking-[0.2em] mb-1">Head Kru</h5>
+                            <h4 class="text-white font-display font-bold text-5xl leading-none">KRU DAVID</h4>
+                        </div>
+
+                        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 space-y-4">
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Trained in Phuket (Tiger Muay Thai). 10+ years experience. Specialist in the Art of 8 Limbs.
+                            </p>
+                            
+                            <div class="space-y-2 font-mono text-[10px] uppercase tracking-widest text-gray-400">
+                                <div class="flex justify-between">
+                                    <span>Clinch</span>
+                                    <span class="text-white">Master</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-yellow-500 w-[95%]"></div>
+                                </div>
+
+                                <div class="flex justify-between mt-2">
+                                    <span>Kicks</span>
+                                    <span class="text-white">Lethal</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-yellow-500 w-[92%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="membership" class="py-20 md:py-32 bg-black relative">
+        
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10 pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <div class="text-center mb-20">
+                <h2 class="text-brand font-bold tracking-[0.3em] uppercase mb-3 flex items-center justify-center gap-3">
+                    <span class="w-8 h-[1px] bg-brand"></span> Join the Ranks <span class="w-8 h-[1px] bg-brand"></span>
+                </h2>
+                <h3 class="text-5xl md:text-7xl font-display font-bold text-white mb-8">
+                    SECURE YOUR <span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500">ACCESS</span>
+                </h3>
+                
+                <div class="inline-flex items-center gap-3 bg-black/50 border border-white/10 rounded-full pl-2 pr-6 py-2 backdrop-blur-md shadow-lg">
+                    <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-green-500">
+                        <i class="fa-solid fa-ticket"></i>
+                    </span>
+                    <div class="text-left">
+                        <span class="block text-[10px] text-gray-400 uppercase font-bold tracking-wider">Walk-in Rate</span>
+                        <span class="block text-white font-bold leading-none">₱80.00 <span class="text-gray-500 font-normal">/ Day</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6 items-center mb-24">
+                
+                <div class="group bg-black/40 border border-white/10 rounded-xl p-8 hover:border-white/30 transition-all duration-300 relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-50"></div>
+                    <h4 class="text-gray-400 font-bold uppercase tracking-widest text-xs mb-4">Starter</h4>
+                    <div class="text-4xl font-display font-bold text-white mb-1">₱1,000</div>
+                    <div class="text-xs text-gray-500 mb-6 uppercase tracking-wider">1 Month Access</div>
+                    
+                    <div class="bg-white/5 rounded p-3 mb-6 border-l-2 border-gray-500">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Student ID</span>
+                            <span class="text-white font-bold">₱800</span>
+                        </div>
+                    </div>
+                    <a href="#" class="block w-full py-3 border border-white/20 text-gray-300 text-center font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all rounded">Select Plan</a>
+                </div>
+
+                <div class="group bg-black/40 border border-white/10 rounded-xl p-8 hover:border-white/30 transition-all duration-300 relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50"></div>
+                    <h4 class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-4">Committed</h4>
+                    <div class="text-4xl font-display font-bold text-white mb-1">₱2,700</div>
+                    <div class="text-xs text-gray-500 mb-6 uppercase tracking-wider">3 Months Access</div>
+                    
+                    <div class="bg-white/5 rounded p-3 mb-6 border-l-2 border-blue-500">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Student ID</span>
+                            <span class="text-white font-bold">₱2,400</span>
+                        </div>
+                    </div>
+                    <a href="#" class="block w-full py-3 border border-white/20 text-gray-300 text-center font-bold uppercase text-xs tracking-widest hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all rounded">Select Plan</a>
+                </div>
+
+                <div class="relative md:-my-8 z-10">
+                    <div class="bg-black border-2 border-brand rounded-xl p-8 shadow-[0_0_40px_rgba(230,0,0,0.2)] transform transition-transform hover:scale-105 duration-300">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand text-white text-[10px] font-bold uppercase px-4 py-1 rounded-full tracking-widest shadow-lg">
+                            Most Popular
+                        </div>
+                        
+                        <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-4 text-center">Serious</h4>
+                        <div class="text-center border-b border-white/10 pb-6 mb-6">
+                            <div class="text-6xl font-display font-bold text-white mb-1">₱5,000</div>
+                            <div class="text-sm text-brand font-bold uppercase tracking-wider">6 Months Access</div>
+                        </div>
+
+                        <div class="bg-brand/10 border border-brand/20 rounded p-3 mb-6">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-brand font-bold uppercase text-xs">Student Deal</span>
+                                <span class="text-white font-bold">₱4,800</span>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-3 mb-8 text-sm text-gray-300">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> Unlimited Access</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> Free Locker Use</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand"></i> 2 Guest Passes</li>
+                        </ul>
+
+                        <a href="#" class="block w-full py-4 bg-brand text-white text-center font-bold uppercase text-sm tracking-widest hover:bg-white hover:text-black transition-all rounded shadow-lg shadow-red-900/20">
+                            Start Training
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group bg-black/40 border border-white/10 rounded-xl p-8 hover:border-white/30 transition-all duration-300 relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50"></div>
+                    <h4 class="text-yellow-500 font-bold uppercase tracking-widest text-xs mb-4">Elite</h4>
+                    <div class="text-4xl font-display font-bold text-white mb-1">₱10,000</div>
+                    <div class="text-xs text-gray-500 mb-6 uppercase tracking-wider">1 Year Access</div>
+                    
+                    <div class="bg-white/5 rounded p-3 mb-6 border-l-2 border-yellow-500">
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-gray-400">Student ID</span>
+                            <span class="text-white font-bold">₱8,000</span>
+                        </div>
+                    </div>
+                    <a href="#" class="block w-full py-3 border border-white/20 text-gray-300 text-center font-bold uppercase text-xs tracking-widest hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-all rounded">Select Plan</a>
+                </div>
+
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-4 mb-6">
+                        <h4 class="text-2xl font-display font-bold text-white uppercase tracking-wide">Class Packages</h4>
+                        <span class="h-[1px] flex-1 bg-white/10"></span>
+                        <span class="text-[10px] text-gray-500 uppercase tracking-widest border border-white/10 px-2 py-1 rounded">Valid for 30 Days</span>
+                    </div>
+
+                    <div class="overflow-hidden rounded-xl border border-white/10 bg-black/20 backdrop-blur-sm">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-white/5 text-gray-400 uppercase text-[10px] font-bold tracking-wider">
+                                    <th class="p-4">Discipline</th>
+                                    <th class="p-4 text-right">Drop-in</th>
+                                    <th class="p-4 text-right text-brand">12 Sessions</th>
+                                    <th class="p-4 text-right">20 Sessions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm text-gray-300 divide-y divide-white/5 font-mono">
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-bold text-white">Fitness / S&C</td>
+                                    <td class="p-4 text-right text-gray-500">₱500</td>
+                                    <td class="p-4 text-right text-brand font-bold">₱4,800</td>
+                                    <td class="p-4 text-right font-bold">₱7,000</td>
+                                </tr>
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-bold text-white">Boxing / Kickboxing</td>
+                                    <td class="p-4 text-right text-gray-500">₱500</td>
+                                    <td class="p-4 text-right text-brand font-bold">₱4,800</td>
+                                    <td class="p-4 text-right font-bold">₱7,000</td>
+                                </tr>
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-bold text-white">Muay Thai</td>
+                                    <td class="p-4 text-right text-gray-500">₱600</td>
+                                    <td class="p-4 text-right text-brand font-bold">₱6,000</td>
+                                    <td class="p-4 text-right font-bold">₱9,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-2xl font-display font-bold text-white uppercase tracking-wide mb-6">Upgrades</h4>
+                    
+                    <div class="bg-gradient-to-br from-gray-800 to-black border border-white/10 p-6 rounded-xl relative overflow-hidden group hover:border-brand/50 transition-all">
+                        <div class="flex justify-between items-start relative z-10">
+                            <div>
+                                <h5 class="font-bold text-white uppercase text-sm mb-1">1-on-1 Coaching</h5>
+                                <p class="text-[10px] text-gray-400 uppercase tracking-wider mb-4">Mitt work & Technical</p>
+                            </div>
+                            <span class="text-2xl font-display font-bold text-brand">₱700</span>
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 text-6xl text-white/5 group-hover:text-brand/10 transition-colors">
+                            <i class="fa-solid fa-stopwatch"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-black border border-white/10 p-6 rounded-xl relative overflow-hidden group hover:border-white/30 transition-all">
+                        <div class="flex justify-between items-center relative z-10">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-gray-400">
+                                    <i class="fa-solid fa-mitten"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-white uppercase text-sm">Gear Rental</h5>
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-wider">Gloves / Headgear</p>
+                                </div>
+                            </div>
+                            <span class="text-xl font-display font-bold text-white">₱50</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="shop" class="py-24 bg-black border-t border-white/10 relative overflow-hidden">
+        
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-white/10 pb-8">
+                <div>
+                    <h2 class="text-brand font-bold tracking-[0.2em] uppercase mb-2">The Armory</h2>
+                    <h3 class="text-5xl md:text-6xl font-display font-bold text-white leading-none">
+                        COMBAT <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">ESSENTIALS</span>
+                    </h3>
+                </div>
+                
+                <div class="mt-6 md:mt-0 flex items-center gap-4">
+                    <div class="text-right hidden md:block">
+                        <p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest">Store Status</p>
+                        <p class="text-xs text-green-500 font-bold uppercase flex items-center justify-end gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Open
+                        </p>
+                    </div>
+                    <a href="#" class="group flex items-center gap-3 px-6 py-3 border border-white/10 rounded hover:border-brand/50 hover:bg-white/5 transition-all">
+                        <i class="fa-solid fa-store text-gray-400 group-hover:text-brand transition-colors"></i>
+                        <span class="text-xs font-bold uppercase text-white tracking-wider">Visit Desk</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                
+                <div class="group relative bg-gray-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-brand/50 transition-all duration-300 hover:shadow-[0_10px_40px_rgba(230,0,0,0.1)]">
+                    
+                    <div class="h-72 overflow-hidden relative bg-gray-800">
+                        <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=800&auto=format&fit=crop" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                             alt="Boxing Gloves">
+                        
+                        <div class="absolute top-3 left-3 flex gap-2">
+                            <span class="bg-brand text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider rounded-sm">Best Seller</span>
+                        </div>
+
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <button class="bg-white text-black font-bold uppercase text-xs px-6 py-3 rounded transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-brand hover:text-white">
+                                Quick Inspect
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 relative">
+                        <p class="text-[10px] text-brand font-bold uppercase tracking-widest mb-2">Equipment</p>
+                        <h4 class="text-xl font-bold text-white uppercase leading-none mb-1 group-hover:text-brand transition-colors">FYTT Pro Gloves</h4>
+                        <p class="text-xs text-gray-500 mb-4">16oz / 14oz • Real Leather</p>
+                        
+                        <div class="flex justify-between items-end border-t border-white/5 pt-4">
+                            <span class="text-2xl font-display font-bold text-white">₱3,500</span>
+                            <span class="text-[10px] text-green-500 font-bold uppercase flex items-center gap-1">
+                                <i class="fa-solid fa-check"></i> In Stock
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative bg-gray-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-brand/50 transition-all duration-300 hover:shadow-[0_10px_40px_rgba(230,0,0,0.1)]">
+                    <div class="h-72 overflow-hidden relative bg-gray-800">
+                        <img src="https://images.unsplash.com/photo-1591117207239-78898dd1e747?q=80&w=800&auto=format&fit=crop" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                             alt="Hand Wraps">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <button class="bg-white text-black font-bold uppercase text-xs px-6 py-3 rounded transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-brand hover:text-white">
+                                Quick Inspect
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 relative">
+                        <p class="text-[10px] text-brand font-bold uppercase tracking-widest mb-2">Accessory</p>
+                        <h4 class="text-xl font-bold text-white uppercase leading-none mb-1 group-hover:text-brand transition-colors">Quick Wraps</h4>
+                        <p class="text-xs text-gray-500 mb-4">180 inch • Elastic Cotton</p>
+                        
+                        <div class="flex justify-between items-end border-t border-white/5 pt-4">
+                            <span class="text-2xl font-display font-bold text-white">₱500</span>
+                            <span class="text-[10px] text-green-500 font-bold uppercase flex items-center gap-1">
+                                <i class="fa-solid fa-check"></i> In Stock
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative bg-gray-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-brand/50 transition-all duration-300 hover:shadow-[0_10px_40px_rgba(230,0,0,0.1)]">
+                    <div class="h-72 overflow-hidden relative bg-gray-800">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                             alt="Gym Shirt">
+                        
+                        <div class="absolute top-3 left-3 flex gap-2">
+                            <span class="bg-white text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider rounded-sm">New Drop</span>
+                        </div>
+
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <button class="bg-white text-black font-bold uppercase text-xs px-6 py-3 rounded transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-brand hover:text-white">
+                                Quick Inspect
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 relative">
+                        <p class="text-[10px] text-brand font-bold uppercase tracking-widest mb-2">Apparel</p>
+                        <h4 class="text-xl font-bold text-white uppercase leading-none mb-1 group-hover:text-brand transition-colors">Team FYTT Tee</h4>
+                        <p class="text-xs text-gray-500 mb-4">Dri-Fit • Oversized Fit</p>
+                        
+                        <div class="flex justify-between items-end border-t border-white/5 pt-4">
+                            <span class="text-2xl font-display font-bold text-white">₱850</span>
+                            <span class="text-[10px] text-green-500 font-bold uppercase flex items-center gap-1">
+                                <i class="fa-solid fa-check"></i> In Stock
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative bg-gray-900/50 border border-white/5 rounded-xl overflow-hidden hover:border-brand/50 transition-all duration-300 hover:shadow-[0_10px_40px_rgba(230,0,0,0.1)]">
+                    <div class="h-72 overflow-hidden relative bg-gray-800">
+                        <img src="https://images.unsplash.com/photo-1570119363385-2e5a7b693358?q=80&w=800&auto=format&fit=crop" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                             alt="Shaker Bottle">
+                        
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <button class="bg-white text-black font-bold uppercase text-xs px-6 py-3 rounded transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-brand hover:text-white">
+                                Quick Inspect
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 relative">
+                        <p class="text-[10px] text-brand font-bold uppercase tracking-widest mb-2">Accessory</p>
+                        <h4 class="text-xl font-bold text-white uppercase leading-none mb-1 group-hover:text-brand transition-colors">Metal Shaker</h4>
+                        <p class="text-xs text-gray-500 mb-4">700ml • Matte Black</p>
+                        
+                        <div class="flex justify-between items-end border-t border-white/5 pt-4">
+                            <span class="text-2xl font-display font-bold text-white">₱600</span>
+                            <span class="text-[10px] text-gray-500 font-bold uppercase flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> Low Stock
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 md:py-32 bg-black relative">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            
+            <div class="text-center mb-16">
+                <h2 class="text-brand font-bold tracking-widest uppercase mb-2">Knowledge Base</h2>
+                <h3 class="text-5xl md:text-6xl font-display font-bold text-white">NEED TO KNOW</h3>
+            </div>
+
+            <div class="space-y-4">
+                
+                <details class="group bg-black border border-white/10 rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden transition-all duration-300 open:border-brand/50 open:bg-brand/5 open:shadow-[0_0_20px_rgba(230,0,0,0.1)]">
+                    <summary class="flex cursor-pointer items-center justify-between p-6 text-white select-none">
+                        <h4 class="font-display font-bold text-2xl tracking-wide">DO I NEED EXPERIENCE TO JOIN?</h4>
+                        <span class="relative size-8 shrink-0 flex items-center justify-center rounded-full bg-white/10 group-hover:bg-brand transition-colors">
+                            <i class="fa-solid fa-plus transition duration-300 group-open:rotate-45"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                        <p class="border-t border-white/10 pt-4">
+                            Absolutely not. 80% of our members started with zero experience. Our <span class="text-white font-bold">Fundamentals</span> classes are designed specifically for Day 1 beginners to learn proper technique safely without the pressure of sparring.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="group bg-black border border-white/10 rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden transition-all duration-300 open:border-brand/50 open:bg-brand/5 open:shadow-[0_0_20px_rgba(230,0,0,0.1)]">
+                    <summary class="flex cursor-pointer items-center justify-between p-6 text-white select-none">
+                        <h4 class="font-display font-bold text-2xl tracking-wide">WHAT GEAR DO I NEED FOR DAY 1?</h4>
+                        <span class="relative size-8 shrink-0 flex items-center justify-center rounded-full bg-white/10 group-hover:bg-brand transition-colors">
+                            <i class="fa-solid fa-plus transition duration-300 group-open:rotate-45"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                        <p class="border-t border-white/10 pt-4">
+                            Just bring comfortable gym clothes, a water bottle, and a towel. We have <span class="text-white font-bold">rental gloves available</span> for your first few sessions. Once you commit, we recommend buying your own hand wraps and gloves (available at our front desk).
+                        </p>
+                    </div>
+                </details>
+
+                <details class="group bg-black border border-white/10 rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden transition-all duration-300 open:border-brand/50 open:bg-brand/5 open:shadow-[0_0_20px_rgba(230,0,0,0.1)]">
+                    <summary class="flex cursor-pointer items-center justify-between p-6 text-white select-none">
+                        <h4 class="font-display font-bold text-2xl tracking-wide">DO YOU HAVE SHOWERS & PARKING?</h4>
+                        <span class="relative size-8 shrink-0 flex items-center justify-center rounded-full bg-white/10 group-hover:bg-brand transition-colors">
+                            <i class="fa-solid fa-plus transition duration-300 group-open:rotate-45"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                        <p class="border-t border-white/10 pt-4">
+                            Yes. We have fully equipped locker rooms with hot showers. We also have a dedicated parking lot for members directly in front of the gym (free for 2 hours with validation).
+                        </p>
+                    </div>
+                </details>
+
+                <details class="group bg-black border border-white/10 rounded-xl overflow-hidden [&_summary::-webkit-details-marker]:hidden transition-all duration-300 open:border-brand/50 open:bg-brand/5 open:shadow-[0_0_20px_rgba(230,0,0,0.1)]">
+                    <summary class="flex cursor-pointer items-center justify-between p-6 text-white select-none">
+                        <h4 class="font-display font-bold text-2xl tracking-wide">CAN I FREEZE MY MEMBERSHIP?</h4>
+                        <span class="relative size-8 shrink-0 flex items-center justify-center rounded-full bg-white/10 group-hover:bg-brand transition-colors">
+                            <i class="fa-solid fa-plus transition duration-300 group-open:rotate-45"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 pt-0 text-gray-400 text-sm leading-relaxed">
+                        <p class="border-t border-white/10 pt-4">
+                            Yes. For injuries or travel longer than 2 weeks, you can freeze your membership for a small administrative fee. Please notify the front desk at least 5 days in advance via email.
+                        </p>
+                    </div>
+                </details>
+
+            </div>
+
+            <div class="mt-12 text-center bg-black/50 border border-white/10 rounded-xl p-8 backdrop-blur-sm">
+                <p class="text-gray-300 mb-4">Didn't find what you were looking for?</p>
+                <a href="#contact" class="inline-flex items-center gap-2 text-brand font-bold uppercase tracking-widest hover:text-white transition-colors">
+                    <i class="fa-solid fa-envelope"></i> Message our Team
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-black pt-32 pb-10 border-t border-white/10 text-white relative overflow-hidden font-sans">
+    
+        <div class="absolute -bottom-10 left-0 w-full overflow-hidden leading-none select-none pointer-events-none z-0">
+            <span class="text-[12rem] md:text-[20rem] font-display font-bold text-white/5 tracking-tighter block text-center md:text-left md:-ml-20">
+                FYTT<span class="text-transparent stroke-white stroke-1">FITNESS</span>
+            </span>
+        </div>
+
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 pointer-events-none z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            
+            <div class="grid md:grid-cols-12 gap-12 mb-20">
+                
+                <div class="md:col-span-4 space-y-6">
+                    <a href="#" class="inline-block">
+                        <h2 class="text-5xl font-display font-bold italic tracking-wider leading-none">
+                            FYTT<span class="text-brand">FITNESS</span>
+                        </h2>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+                        Forged in sweat, built on respect. The premier facility for those who refuse to be average. We provide the battleground; you bring the war.
+                    </p>
+                    
+                    <div class="flex gap-4 pt-4">
+                        <a href="#" class="w-12 h-12 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:bg-brand hover:border-brand hover:text-white transition-all duration-300 group">
+                            <i class="fa-brands fa-facebook-f group-hover:scale-110 transition-transform"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:bg-brand hover:border-brand hover:text-white transition-all duration-300 group">
+                            <i class="fa-brands fa-instagram group-hover:scale-110 transition-transform"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:bg-brand hover:border-brand hover:text-white transition-all duration-300 group">
+                            <i class="fa-brands fa-tiktok group-hover:scale-110 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2">
+                    <h4 class="font-display font-bold text-xl tracking-wider text-white mb-6 uppercase border-l-2 border-brand pl-3">Explore</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#programs" class="text-gray-400 hover:text-brand hover:translate-x-2 transition-all duration-300 flex items-center gap-2 text-sm uppercase font-bold tracking-widest"><i class="fa-solid fa-angle-right text-xs"></i> Programs</a></li>
+                        <li><a href="#schedule" class="text-gray-400 hover:text-brand hover:translate-x-2 transition-all duration-300 flex items-center gap-2 text-sm uppercase font-bold tracking-widest"><i class="fa-solid fa-angle-right text-xs"></i> Schedule</a></li>
+                        <li><a href="#membership" class="text-gray-400 hover:text-brand hover:translate-x-2 transition-all duration-300 flex items-center gap-2 text-sm uppercase font-bold tracking-widest"><i class="fa-solid fa-angle-right text-xs"></i> Pricing</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-brand hover:translate-x-2 transition-all duration-300 flex items-center gap-2 text-sm uppercase font-bold tracking-widest"><i class="fa-solid fa-angle-right text-xs"></i> Coaches</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-3">
+                    <h4 class="font-display font-bold text-xl tracking-wider text-white mb-6 uppercase border-l-2 border-brand pl-3">The Gym</h4>
+                    <ul class="space-y-5 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3 group cursor-pointer hover:text-white transition-colors">
+                            <div class="mt-1 w-8 h-8 rounded bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-brand transition-colors">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <span class="leading-relaxed">Blk 5 Lot 31-a Sampaguita, Camarin, Caloocan<br>1422 Metro Manila, PH</span>
+                        </li>
+                        <li class="flex items-center gap-3 group cursor-pointer hover:text-white transition-colors">
+                            <div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-brand transition-colors">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <span>(02) 8555-0123</span>
+                        </li>
+                        <li class="flex items-center gap-3 group cursor-pointer hover:text-white transition-colors">
+                            <div class="w-8 h-8 rounded bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-brand transition-colors">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <span>info@fyttfitness.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-3">
+                    <h4 class="font-display font-bold text-xl tracking-wider text-white mb-6 uppercase border-l-2 border-brand pl-3">Inner Circle</h4>
+                    <p class="text-xs text-gray-500 mb-4">Join the list. Get fight tips, exclusive promos, and event invites.</p>
+                    
+                    <form class="relative group mb-8" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="ENTER EMAIL" 
+                            class="w-full bg-white/5 border border-white/10 text-white text-sm font-bold tracking-wider px-5 py-4 focus:outline-none focus:border-brand focus:bg-black transition-all rounded-sm placeholder-gray-600">
+                        <button class="absolute right-1 top-1 bottom-1 bg-brand text-white px-4 hover:bg-white hover:text-black transition-colors rounded-sm">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+
+                    <div class="bg-white/5 p-4 rounded-sm border-l-2 border-brand">
+                        <h5 class="text-white font-bold text-xs uppercase mb-2 tracking-widest">Opening Hours</h5>
+                        <div class="text-xs text-gray-400 flex justify-between mb-1">
+                            <span>Mon - Fri</span>
+                            <span class="text-white font-bold">06:00 - 22:00</span>
+                        </div>
+                        <div class="text-xs text-gray-400 flex justify-between">
+                            <span>Sat - Sun</span>
+                            <span class="text-white font-bold">08:00 - 20:00</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600 font-bold uppercase tracking-wider">
+                <p>&copy; 2026 FYTT Fitness. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-brand transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-brand transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-brand transition-colors">Waiver</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="assets/main.js" defer></script>
+</body>
+</html>
